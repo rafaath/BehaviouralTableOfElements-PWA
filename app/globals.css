@@ -16,7 +16,7 @@
   }
 }
 
-body {
+/* body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -24,10 +24,30 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
+} */
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+
+html, body {
+  min-height: 100vh; /* Ensure minimum height of the viewport for the entire document */
+  width: 100vw; /* Ensure the width is always the full viewport width */
+  /* overflow-x: hidden; Prevent horizontal scrolling */
+  background-color: #f3f4f6; /* Set the default background color */
+}
+
+#__next {
+  min-height: 100vh; /* Full viewport height */
+  display: flex; /* Ensures that the child elements can flexibly fill the space */
+  flex-direction: column; /* Align children vertically */
+}
+
+.grid-container {
+  width: 100%; /* Ensure the grid takes full width */
+  max-width: 100vw; /* Prevent it from exceeding the viewport width */
+  overflow-x: auto; /* Allow horizontal scrolling within the grid if needed */
 }

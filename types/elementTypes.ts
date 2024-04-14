@@ -1,12 +1,11 @@
-// utils/types.ts
-export interface BehavioralElement {
+export interface Element {
     symbol: string;
     row: number;
     column: number;
-    specificScenario?: null | string;
+    specificScenario: string | null;
     boxColor: string;
     firstLetterColor: string;
-    secondLetterColor?: string;
+    secondLetterColor: string | null;
     thirdLetterColor?: string;
     name: string;
     confirmingGestures: string[];
@@ -18,7 +17,7 @@ export interface BehavioralElement {
     gestureType: string;
     conflictingBehaviors: string[];
     bodyRegion: string;
-    deceptionRatingScalePoints: number;
+    deceptionRatingScalePoints: string | number;
     deceptionTimeframe: string;
   }
   
