@@ -15,7 +15,6 @@
     "react-dom": "^18"
   },
   "devDependencies": {
-    "@next/swc-win32-x64-msvc": "^14.1.4",
     "@types/eslint": "^8.56.9",
     "@types/minimatch": "^5.1.2",
     "@types/node": "^20",
