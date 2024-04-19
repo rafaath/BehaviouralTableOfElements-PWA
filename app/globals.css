@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -37,7 +38,7 @@ html, body {
   min-height: 100vh; /* Ensure minimum height of the viewport for the entire document */
   width: 100vw; /* Ensure the width is always the full viewport width */
   /* overflow-x: hidden; Prevent horizontal scrolling */
-  background-color: #f3f4f6; /* Set the default background color */
+  background-color: #000000; /* Set the default background color */
 }
 
 #__next {
@@ -50,4 +51,190 @@ html, body {
   width: 100%; /* Ensure the grid takes full width */
   max-width: 100vw; /* Prevent it from exceeding the viewport width */
   overflow-x: auto; /* Allow horizontal scrolling within the grid if needed */
+}
+
+@keyframes enterAnimation {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+    filter: blur(10px);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes exitAnimation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0;
+    filter: blur(10px);
+  }
+}
+
+.modal-enter {
+  animation: enterAnimation 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+}
+
+.modal-exit {
+  animation: exitAnimation 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+}
+
+
+.modal-enter, .modal-exit {
+  will-change: transform, opacity, filter;
+}
+
+
+
+
+
+
+.tabs button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #eee;
+  cursor: pointer;
+  outline: none;
+}
+
+.tabs button.active {
+  background-color: #ccc;
+}
+
+.modal-content {
+  height: 90vh; /* Fixed height for the tray */
+  overflow: hidden; /* Prevents the tray itself from becoming scrollable */
+}
+
+.tabs {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1000; /* Ensures tabs stay on top */
+  padding: 10px 0;
+}
+
+.content {
+  height: calc(90vh - 50px); /* Adjusts height to take tabs into account */
+  overflow-y: auto; /* Allows scrolling within each tab content */
+  padding: 10px;
+}
+
+
+.br {
+  display: block;
+}
+
+
+/* Add this class to your Tailwind CSS configuration under `extend` */
+.scale-hover {
+  transition: transform 0.3s ease-in-out;
+}
+
+.scale-hover:hover {
+  transform: scale(1.05); /* Increase the scale to make the element pop out */
+}
+
+
+/* Tailwind CSS extension */
+.opacity-hover{
+  transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.opacity-hover:hover {
+  opacity: 0.9;
+  filter: brightness(1.1);
+}
+
+/* Tailwind CSS configuration */
+.border-hover {
+  transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease;
+}
+
+.border-hover:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  border-color: #000000; /* Example color */
+}
+
+
+
+/* Base styles for the entire details section */
+.details {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  column-gap: 20px; /* Space between columns */
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+  background-color: white;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.details span {
+  display: block; /* Makes each property appear on a new line */
+  margin-bottom: 10px; /* Adds spacing between entries */
+}
+
+/* Custom styles for specific elements */
+.details .box-color,
+.details .first-letter-color,
+.details .second-letter-color,
+.details .third-letter-color {
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+}
+
+.details .name {
+  font-size: 20px;
+  color: #007aff; /* Apple blue */
+  font-weight: bold;
+}
+
+.details .confirming-gestures,
+.details .amplifying-gestures,
+.details .conflicting-behaviors {
+  font-style: italic;
+}
+
+.details .microphysiological,
+.details .variable-factors,
+.details .cultural-prevalence,
+.details .sexual-propensity,
+.details .gesture-type,
+.details .body-region,
+.details .deception-rating-scale-points,
+.details .deception-timeframe {
+  color: #666; /* Lighter text for less emphasis */
+  font-size: 14px;
+}
+
+
+/* This applies to all scrollable elements */
+::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2); /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 3px solid transparent; /* creates padding around scroll thumb */
+}
+
+/* This will apply when the element is hovered */
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0,0,0,0.5);
 }

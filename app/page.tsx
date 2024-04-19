@@ -25,18 +25,18 @@ const Home: NextPage = () => {
 const elements: Element[] = transformedElements
 
   return (
-    <div className="min-h-screen bg-gray-100 p-5">
+    <div className="min-h-screen bg-black-100 p-5">
       <Head>
         <title>Behavioral Table of Elements</title>
         <meta name="description" content="A grid layout displaying behavioral elements like a periodic table." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* <div><h1 className='text-center text-2xl'>Behavioral Table Of Elements</h1></div> */}
-      <div className="grid grid-cols-[repeat(auto-fill,_minmax(100px,_1fr))] gap-1">
+      <div className="grid grid-cols-[repeat(auto-fill,_minmax(101px,_1fr))] gap-1 bg-black">
         {elements.map((element: Element) => (
           <div
             key={element.symbol}
-            className="p-2 border rounded shadow-sm cursor-pointer"
+            className="p-2 rounded shadow-sm cursor-pointer scale-hover border-hover opacity-hover"
             style={{
               gridColumnStart: element.column,
               gridRowStart: element.row,
@@ -45,7 +45,7 @@ const elements: Element[] = transformedElements
             onClick={() => setSelectedElement(element)}
           >
             <h2 className="text-lg font-bold" style={{ color: element.firstLetterColor }}>{element.symbol}</h2>
-            <p className='text-black'>{element.name}</p>
+            <p className='text-black text-xs'>{element.name}</p>
           </div>
         ))}
       </div>
